@@ -1,5 +1,5 @@
 {% set name = "azure-monitor-opentelemetry" %}
-{% set version = "1.6.4" %}
+{% set version = "1.6.10" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/azure_monitor_opentelemetry-{{ version }}.tar.gz
-  sha256: 9f5ce4c666caf1f9b536f8ab4ee207dff94777d568517c74f26e3327f75c3fc3
+  sha256: 1f8145f665abb1626ac1caf14f75fc9b4fc43b818694798f7a43ea369e265683
 
 build:
   noarch: python
