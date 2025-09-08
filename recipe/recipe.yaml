@@ -3,7 +3,7 @@ schema_version: 1
 
 context:
   name: azure-monitor-opentelemetry
-  version: "1.6.12"
+  version: "1.8.0"
 
 package:
   name: ${{ name|lower }}
@@ -11,7 +11,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/azure_monitor_opentelemetry-${{ version }}.tar.gz
-  sha256: 7f00db21248577eba12577e220d75fea76f9bc6ae7be32094789332f46b7e369
+  sha256: 25623a69e208e6fdf869c0fbfd98c4b2661a7eb412d098b632e7bbd047921fe1
 
 build:
   number: 0
