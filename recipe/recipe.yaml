@@ -3,7 +3,14 @@ schema_version: 1
 
 context:
   name: azure-monitor-opentelemetry
-  version: "1.6.12"
+  version: "1.6.13"
+  opentelemetry_sdk_version: '1.36.0'
+  opentelemetry_sdk_version_max: '1.37.dev0'
+  opentelemetry_instrumentation_version: '0.57b0'
+  azure_core_tracing_opentelemetry: '1.0.0b11'
+  azure_monitor_opentelemetry_exporter: '1.0.0b40'
+  opentelemetry_resource_detector_azure: '0.1.5'
+  opentelemetry_resource_detector_azure_max: '0.2.dev0'
 
 package:
   name: ${{ name|lower }}
@@ -11,7 +18,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/azure_monitor_opentelemetry-${{ version }}.tar.gz
-  sha256: 7f00db21248577eba12577e220d75fea76f9bc6ae7be32094789332f46b7e369
+  sha256: 59b1b01e64318d78f0d2909c8fa9b3008dbf88e7ea6e491d2042afa5bbe94971
 
 build:
   number: 0
@@ -26,17 +33,17 @@ requirements:
   run:
     - python >=${{ python_min }},<4.0
     - azure-core <2.0.0,>=1.28.0
-    - azure-core-tracing-opentelemetry >=1.0.0b11,<1.1.dev0
-    - azure-monitor-opentelemetry-exporter >=1.0.0b31,<1.1.dev0
-    - opentelemetry-instrumentation-django <0.53b0,>=0.49b0
-    - opentelemetry-instrumentation-fastapi <0.53b0,>=0.49b0
-    - opentelemetry-instrumentation-flask <0.53b0,>=0.49b0
-    - opentelemetry-instrumentation-psycopg2 <0.53b0,>=0.49b0
-    - opentelemetry-instrumentation-requests <0.53b0,>=0.49b0
-    - opentelemetry-instrumentation-urllib <0.53b0,>=0.49b0
-    - opentelemetry-instrumentation-urllib3 <0.53b0,>=0.49b0
-    - opentelemetry-resource-detector-azure >=0.1.4,<0.2.dev0
-    - opentelemetry-sdk <1.32,>=1.28.0
+    - azure-core-tracing-opentelemetry >=${{ azure_core_tracing_opentelemetry }},<1.1.dev0
+    - azure-monitor-opentelemetry-exporter >=${{ azure_monitor_opentelemetry_exporter }},<1.1.dev0
+    - opentelemetry-instrumentation-django >=${{ opentelemetry_instrumentation_version }},<1.dev0
+    - opentelemetry-instrumentation-fastapi >=${{ opentelemetry_instrumentation_version }},<1.dev0
+    - opentelemetry-instrumentation-flask >=${{ opentelemetry_instrumentation_version }},<1.dev0
+    - opentelemetry-instrumentation-psycopg2 >=${{ opentelemetry_instrumentation_version }},<1.dev0
+    - opentelemetry-instrumentation-requests >=${{ opentelemetry_instrumentation_version }},<1.dev0
+    - opentelemetry-instrumentation-urllib >=${{ opentelemetry_instrumentation_version }},<1.dev0
+    - opentelemetry-instrumentation-urllib3 >=${{ opentelemetry_instrumentation_version }},<1.dev0
+    - opentelemetry-resource-detector-azure >=${{ opentelemetry_resource_detector_azure }},<${{ opentelemetry_resource_detector_azure_max }}
+    - opentelemetry-sdk >=${{ opentelemetry_sdk_version }},<${{ opentelemetry_sdk_version_max }}
 
 tests:
   - python:
